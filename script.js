@@ -24,22 +24,73 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================================================
     // Mobile menu
     // =========================================================
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => {
-            const isOpen = navLinks.classList.toggle("open");
-            menuToggle.setAttribute("aria-expanded", String(isOpen));
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Fechar menu" : "Abrir menu"
+        );
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Abrir menu");
         });
+    });
 
-        navLinks.querySelectorAll("a").forEach((link) => {
-            link.addEventListener("click", () => {
-                navLinks.classList.remove("open");
-                menuToggle.setAttribute("aria-expanded", "false");
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            navLinks.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Abrir menu");
+        }
+    });
+}
+
+
+
+    
+    // =========================================================
+    // Controles do vídeo de apresentação
+    // =========================================================
+    document.querySelectorAll(".video-wrapper").forEach((wrapper) => {
+        const video = wrapper.querySelector("video");
+        const overlay = wrapper.querySelector(".video-overlay");
+
+        if (!video || !overlay) return;
+
+        // Clicar no botão inicia a reprodução
+        overlay.addEventListener("click", () => {
+            video.play().catch((error) => {
+                console.error("Não foi possível reproduzir o vídeo:", error);
             });
         });
-    }
+
+        // Oculta o botão quando o vídeo começa a tocar
+        video.addEventListener("play", () => {
+            overlay.classList.add("hidden");
+        });
+
+        // Reexibe o botão quando o vídeo é pausado
+        video.addEventListener("pause", () => {
+            overlay.classList.remove("hidden");
+        });
+
+        // Reexibe o botão ao terminar
+        video.addEventListener("ended", () => {
+            overlay.classList.remove("hidden");
+        });
+    });
+
 
     // =========================================================
     // Active navigation based on current section
@@ -65,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             rootMargin: "-20% 0px -55% 0px"
         }
     );
+
 
     sections.forEach((section) => sectionObserver.observe(section));
 

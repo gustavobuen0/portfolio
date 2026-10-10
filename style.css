@@ -1236,26 +1236,6 @@ a {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =========================================================
    PARTÍCULAS DO HERO
    ========================================================= */
@@ -1307,4 +1287,1255 @@ a {
 .hero-visual {
     position: relative;
     z-index: 2;
+}
+
+/* =========================
+   CURRÍCULO & APRESENTAÇÃO
+========================= */
+
+.resume-section {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.resume-card {
+    position: relative;
+    overflow: hidden;
+    padding: 36px;
+    border: 1px solid rgba(80, 245, 39, 0.12);
+    border-radius: 18px;
+    background: rgba(10, 14, 12, 0.72);
+    backdrop-filter: blur(12px);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.resume-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #50f527,
+        transparent
+    );
+    opacity: 0.7;
+}
+
+.resume-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(80, 245, 39, 0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.resume-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+
+    border: 1px solid rgba(80, 245, 39, 0.25);
+    border-radius: 14px;
+
+    color: #50f527;
+    background: rgba(80, 245, 39, 0.06);
+
+    font-size: 24px;
+}
+
+.resume-content {
+    position: relative;
+    z-index: 2;
+}
+
+.card-label {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    color: #50f527;
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.resume-card h3 {
+    margin: 0 0 14px;
+
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.resume-card p {
+    margin: 0;
+    max-width: 520px;
+
+    color: #929a95;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.resume-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.resume-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+
+
+/* =========================
+   VÍDEO
+========================= */
+
+.video-card {
+    padding: 0;
+}
+
+.video-wrapper {
+    position: relative;
+}
+
+.video-wrapper video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.video-overlay i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 24px;
+}
+
+.video-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.video-card .resume-content {
+    padding: 28px 32px 32px;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 850px) {
+
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-section {
+        padding: 90px 0;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .resume-card {
+        padding: 25px;
+    }
+
+    .resume-card h3 {
+        font-size: 21px;
+    }
+
+    .resume-actions {
+        flex-direction: column;
+    }
+
+    .resume-actions .btn {
+        width: 100%;
+    }
+
+    .video-card {
+        padding: 0;
+    }
+
+    .video-card .resume-content {
+        padding: 24px;
+    }
+}
+
+
+
+/* =========================================================
+   GUSTAVO BUENO — RESPONSIVIDADE GLOBAL
+   Adicione este bloco AO FINAL do CSS existente.
+   ========================================================= */
+
+/* ---------- Base e prevenção de overflow ---------- */
+
+:root {
+    --container-width: 1180px;
+    --page-gutter: clamp(16px, 4vw, 32px);
+    --section-space: clamp(64px, 9vw, 120px);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    scroll-padding-top: 90px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    overflow-x: clip;
+}
+
+img,
+picture,
+video,
+canvas,
+svg,
+iframe {
+    max-width: 100%;
+}
+
+img,
+video {
+    height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+    max-width: 100%;
+    font: inherit;
+}
+
+a,
+button {
+    touch-action: manipulation;
+}
+
+a {
+    overflow-wrap: anywhere;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+small,
+strong {
+    overflow-wrap: break-word;
+}
+
+.container {
+    width: calc(100% - 2 * var(--page-gutter));
+    max-width: var(--container-width);
+    margin-inline: auto;
+    min-width: 0;
+}
+
+.section,
+.resume-section {
+    padding-block: var(--section-space);
+    min-width: 0;
+}
+
+.section > *,
+.resume-section > *,
+.container > * {
+    min-width: 0;
+}
+
+/* ---------- Cabeçalho e navegação ---------- */
+
+.header {
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.nav {
+    width: 100%;
+    min-width: 0;
+    gap: 16px;
+}
+
+.brand {
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.nav-links {
+    min-width: 0;
+}
+
+.menu-toggle {
+    flex: 0 0 42px;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle:focus-visible,
+.nav-links a:focus-visible,
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
+}
+
+/* ---------- Hero: correção estrutural ---------- */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 100svh;
+    min-height: 100vh;
+    padding-block: 120px 80px;
+    overflow: clip;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+
+    width: calc(100% - 2 * var(--page-gutter));
+    max-width: var(--container-width);
+    min-height: auto;
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 70px);
+}
+
+.hero-copy,
+.hero-visual {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.7rem, 6vw, 6.3rem);
+    overflow-wrap: anywhere;
+}
+
+.hero h1 span {
+    max-width: 100%;
+}
+
+.hero-description {
+    max-width: 100%;
+}
+
+.hero-actions,
+.resume-actions {
+    min-width: 0;
+}
+
+.hero-visual {
+    position: relative;
+}
+
+.terminal-card,
+.mini-terminal,
+.terminal-body,
+.mini-terminal-content {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.terminal-body,
+.mini-terminal-content {
+    overflow-wrap: anywhere;
+    overflow-x: auto;
+}
+
+.terminal-body pre,
+.terminal-body code,
+.mini-terminal-content pre,
+.mini-terminal-content code {
+    max-width: 100%;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.visual-badge {
+    right: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+}
+
+#particles-js {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#particles-js canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ---------- Títulos de seção ---------- */
+
+.section-heading {
+    min-width: 0;
+    gap: clamp(12px, 2.5vw, 22px);
+}
+
+.section-heading > * {
+    min-width: 0;
+}
+
+.section-heading h2 {
+    font-size: clamp(1.9rem, 4.5vw, 3.25rem);
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Sobre mim ---------- */
+
+.about-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    gap: clamp(28px, 5vw, 70px);
+}
+
+.about-text,
+.about-grid > * {
+    min-width: 0;
+}
+
+.about-highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.about-highlights > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Experiência profissional ---------- */
+
+.timeline {
+    width: 100%;
+    min-width: 0;
+}
+
+.timeline-item {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 20px;
+}
+
+.timeline-content {
+    min-width: 0;
+}
+
+.timeline-title {
+    min-width: 0;
+}
+
+.timeline-title h3 {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.tag {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.tech-tags span,
+.project-stack span,
+.skill-list span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Formação acadêmica ---------- */
+
+.education-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.education-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.education-card h3 {
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Projetos ---------- */
+
+.projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.project-card h3 {
+    overflow-wrap: anywhere;
+}
+
+.project-link {
+    gap: 12px;
+    min-width: 0;
+}
+
+/* ---------- Habilidades e segurança ---------- */
+
+.skills-layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+}
+
+.skills-panel,
+.security-panel {
+    min-width: 0;
+}
+
+.security-header {
+    min-width: 0;
+}
+
+.security-header > * {
+    min-width: 0;
+}
+
+.security-panel li {
+    align-items: flex-start;
+}
+
+/* ---------- Currículo e apresentação ---------- */
+
+.resume-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 30px);
+}
+
+.resume-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.resume-card h3 {
+    overflow-wrap: anywhere;
+}
+
+.resume-card p {
+    max-width: 100%;
+}
+
+.resume-actions .btn {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.video-card {
+    padding: 0;
+}
+
+.video-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.video-wrapper video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.video-card .resume-content {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Contato ---------- */
+
+.contact-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(24px, 5vw, 70px);
+    min-width: 0;
+}
+
+.contact-copy,
+.contact-links {
+    min-width: 0;
+}
+
+.contact-links a {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.contact-links a > * {
+    min-width: 0;
+}
+
+.contact-links a:hover {
+    transform: translateX(2px);
+}
+
+/* ---------- Rodapé ---------- */
+
+.footer-inner {
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.footer-inner > * {
+    min-width: 0;
+}
+
+/* =========================================================
+   NOTEBOOKS MENORES E TABLETS NA HORIZONTAL
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .hero-container {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+        gap: 32px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    }
+
+    .about-grid {
+        gap: 35px;
+    }
+
+    .education-grid,
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skills-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .nav-links {
+        gap: 0;
+    }
+
+    .nav-links a {
+        padding-inline: 9px;
+        font-size: .72rem;
+    }
+}
+
+/* =========================================================
+   TABLETS E CELULARES GRANDES
+   ========================================================= */
+
+@media (max-width: 850px) {
+    .section,
+    .resume-section {
+        padding-block: 80px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-block: 115px 65px;
+    }
+
+    .hero-container {
+        width: calc(100% - 2 * var(--page-gutter));
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+
+    .hero-copy {
+        max-width: 760px;
+    }
+
+    .hero-visual {
+        width: 100%;
+        max-width: 720px;
+        margin-inline: auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(3rem, 9vw, 5rem);
+    }
+
+    .about-grid,
+    .skills-layout,
+    .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about-grid {
+        gap: 35px;
+    }
+
+    .about-highlights {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .education-grid,
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resume-grid {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 700px;
+        margin-inline: auto;
+    }
+
+    .resume-section .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .contact-card {
+        gap: 35px;
+    }
+
+    .contact-copy h2 {
+        font-size: clamp(2.2rem, 6vw, 3.7rem);
+    }
+}
+
+/* =========================================================
+   CELULARES
+   ========================================================= */
+
+@media (max-width: 600px) {
+    :root {
+        --page-gutter: 18px;
+    }
+
+    html {
+        scroll-padding-top: 76px;
+    }
+
+    .container {
+        width: calc(100% - 2 * var(--page-gutter));
+    }
+
+    .section,
+    .resume-section {
+        padding-block: 64px;
+    }
+
+    /* Cabeçalho */
+    .nav {
+        height: 66px;
+        gap: 12px;
+    }
+
+    .brand {
+        font-size: .95rem;
+        gap: 7px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex: 0 0 42px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: var(--page-gutter);
+        right: var(--page-gutter);
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+
+        max-height: calc(100dvh - 85px);
+        overflow-y: auto;
+        padding: 10px;
+
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        background: rgba(5, 9, 6, .97);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 13px;
+        font-size: .78rem;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    /* Hero */
+    .hero {
+        padding-block: 100px 55px;
+    }
+
+    .hero-container {
+        width: calc(100% - 2 * var(--page-gutter));
+        gap: 32px;
+    }
+
+    .status {
+        max-width: 100%;
+        flex-wrap: wrap;
+        font-size: .65rem;
+        margin-bottom: 22px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        line-height: 1;
+        letter-spacing: -.065em;
+    }
+
+    .hero h1 span {
+        margin-top: 15px;
+        font-size: clamp(1rem, 4.5vw, 1.25rem);
+        line-height: 1.45;
+    }
+
+    .hero-description {
+        margin-top: 22px;
+        font-size: .91rem;
+        line-height: 1.8;
+    }
+
+    .hero-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+        margin-top: 26px;
+    }
+
+    .btn {
+        width: 100%;
+        min-height: 48px;
+        padding-inline: 14px;
+        white-space: normal;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-meta {
+        gap: 10px;
+        margin-top: 22px;
+        font-size: .62rem;
+    }
+
+    .terminal-top {
+        height: 40px;
+        padding-inline: 12px;
+        font-size: .59rem;
+    }
+
+    .terminal-body {
+        min-height: 0;
+        padding: 20px 14px 24px;
+        font-size: clamp(.58rem, 2.5vw, .7rem);
+        line-height: 1.9;
+    }
+
+    .terminal-output,
+    .indent {
+        padding-left: 10px;
+    }
+
+    .visual-badge {
+        position: relative;
+        inset: auto;
+        width: fit-content;
+        max-width: 100%;
+        margin: 12px 0 0 auto;
+    }
+
+    /* Títulos */
+    .section-heading {
+        gap: 12px;
+        margin-bottom: 35px;
+    }
+
+    .section-number {
+        padding-top: 5px;
+        font-size: .7rem;
+    }
+
+    .section-heading h2 {
+        margin-top: 8px;
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        line-height: 1.12;
+    }
+
+    /* Sobre */
+    .about-text .lead {
+        font-size: 1.12rem;
+    }
+
+    .about-text p {
+        font-size: .91rem;
+    }
+
+    .about-highlights {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .about-highlights > div {
+        padding: 15px;
+    }
+
+    /* Experiência */
+    .timeline {
+        padding-left: 23px;
+    }
+
+    .timeline::before {
+        left: 4px;
+    }
+
+    .timeline-item {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+        padding-bottom: 35px;
+    }
+
+    .timeline-marker {
+        left: -23px;
+    }
+
+    .timeline-date {
+        padding-left: 2px;
+        font-size: .63rem;
+    }
+
+    .timeline-content {
+        padding: 20px 17px;
+    }
+
+    .timeline-title {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .timeline-title h3 {
+        font-size: 1.05rem;
+    }
+
+    .timeline-content > p {
+        font-size: .85rem;
+    }
+
+    /* Formação e projetos */
+    .education-grid,
+    .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .education-card {
+        min-height: auto;
+        padding: 23px;
+    }
+
+    .education-icon {
+        margin-bottom: 24px;
+    }
+
+    .project-card {
+        min-height: 0;
+        padding: 22px;
+    }
+
+    .project-card h3 {
+        margin-top: 30px;
+    }
+
+    .project-link {
+        padding-top: 20px;
+    }
+
+    /* Habilidades */
+    .skills-panel {
+        padding-inline: 19px;
+    }
+
+    .skill-category {
+        padding-block: 20px;
+    }
+
+    .security-panel {
+        padding: 22px 19px;
+    }
+
+    .security-header {
+        gap: 13px;
+    }
+
+    .security-header h3 {
+        font-size: 1rem;
+    }
+
+    .security-panel li {
+        font-size: .74rem;
+        line-height: 1.6;
+    }
+
+    /* Currículo */
+    .resume-grid {
+        gap: 18px;
+        margin-top: 35px;
+    }
+
+    .resume-card {
+        padding: 24px 20px;
+    }
+
+    .resume-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+        font-size: 21px;
+    }
+
+    .card-label {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .resume-card h3 {
+        font-size: clamp(1.25rem, 6vw, 1.6rem);
+        line-height: 1.3;
+    }
+
+    .resume-card p {
+        font-size: .9rem;
+    }
+
+    .resume-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .video-card {
+        padding: 0;
+    }
+
+    .video-card .resume-content {
+        padding: 22px 19px 25px;
+    }
+
+    .video-overlay i {
+        width: 54px;
+        height: 54px;
+        font-size: 21px;
+    }
+
+    /* Contato */
+    .contact-section {
+        padding-bottom: 65px;
+    }
+
+    .contact-card {
+        padding: 27px 19px;
+        gap: 28px;
+        border-radius: 16px;
+    }
+
+    .contact-copy h2 {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+
+    .contact-copy > p:last-child {
+        font-size: .86rem;
+    }
+
+    .contact-links a {
+        padding: 12px;
+        gap: 11px;
+        font-size: .72rem;
+    }
+
+    .contact-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* Rodapé */
+    .footer-inner {
+        min-height: 0;
+        padding-block: 22px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        line-height: 1.8;
+    }
+}
+
+/* =========================================================
+   CELULARES ESTREITOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+    :root {
+        --page-gutter: 14px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.2rem, 11.5vw, 2.8rem);
+    }
+
+    .section-heading {
+        gap: 9px;
+    }
+
+    .section-heading h2 {
+        font-size: 1.75rem;
+    }
+
+    .terminal-body {
+        padding-inline: 11px;
+        font-size: .56rem;
+    }
+
+    .timeline-content {
+        padding: 17px 14px;
+    }
+
+    .education-card,
+    .project-card {
+        padding: 19px;
+    }
+
+    .resume-card {
+        padding: 21px 16px;
+    }
+
+    .security-panel {
+        padding: 19px 15px;
+    }
+
+    .contact-card {
+        padding: 23px 15px;
+    }
+
+    .contact-links a {
+        gap: 9px;
+        padding: 10px;
+    }
+}
+
+/* =========================================================
+   TABLETS EM PAISAGEM E TELAS BAIXAS
+   ========================================================= */
+
+@media (max-height: 600px) and (min-width: 851px) {
+    .hero {
+        min-height: 100vh;
+        padding-block: 110px 45px;
+    }
+
+    .hero-container {
+        min-height: auto;
+    }
+}
+
+/* =========================================================
+   ACESSIBILIDADE E MOVIMENTO REDUZIDO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
 }
